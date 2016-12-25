@@ -1,0 +1,360 @@
+/** Fonts */
+
+@font-face {
+    font-family: 'junction_regularregular';
+    src: url('../fonts/Junction-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'junction_regularregular';
+}
+
+
+/** Overall */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 1em; /* space before the footer */
+    padding-bottom: 2em; /* footer height */
+}
+
+
+/** Header */
+
+header {
+    background-color: #79CBB9;
+    color: #F26D82;
+    text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000; /* using shadow to outline the text evenly */
+    margin: 0;
+    padding: 0.5em 0em;
+    text-align: center;
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+
+/** Navigation bar */
+
+nav {
+    background-color: #AFE6DA;
+}
+
+#nav-list {
+    margin: 0;
+    padding: 0;
+    display: flex; /* display items side-by-side */
+    align-items: center;
+    justify-content: center;
+    list-style: none; /* remove bullets from the list */
+}
+
+#nav-list a {
+    padding: 0.5em 1.5em;
+    display: flex;
+    color: #000;
+    text-decoration: none; /* remove underline */
+}
+
+nav a:hover {
+    /*font-weight: bold;*/
+    background: #fff;
+    color: #000;
+}
+
+.nav-here {
+    background: #fff;
+}
+
+@media (max-width: 400px) {
+
+    /*  If I add more nav buttons in the future, I'll display them vertically at lower resolutions.
+    #nav-list {
+        flex-direction: column;
+    }
+    */
+
+    #nav-list a {
+        padding: 0.5em 0.5em;
+    }
+}
+
+
+/** Footer */
+
+footer {
+    /* Sticky footer from http://stackoverflow.com/a/18066619 */
+    background-color: #79CBB9;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden; /* not required */
+
+    /* center a single line of text */
+    text-align: center;
+    line-height: 3em;
+    height: 3em;
+}
+
+
+/** Main section */
+
+main {
+    /* auto space left and right */
+    margin: 2em auto; /* 2em space to not touch the nav */
+    width: 80%;
+    max-width: 700px;
+}
+
+a {
+    color: #F26D82;
+    letter-spacing: 2px;
+}
+
+a:hover {
+    color: #88bbd6;
+}
+
+/** Search page */
+
+.welcome {
+    /* using flex to align horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+/* for the higher resolution case */
+@media (min-width: 700px) {
+    /* place the text beside the logo */
+    .welcome {
+        flex-wrap: nowrap;
+    }
+    .welcome-text {
+        text-align: left;
+        margin-left: 1em;
+    }
+}
+
+.welcome a {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.welcome img {
+    max-width: 375px;
+    min-width: 280px;
+    width: 100%;
+}
+
+#search > form {
+    text-align: center;
+}
+
+
+/** Results page */
+
+#results-map {
+    /* center the placeholder map so it can scale without stretching */
+    /*background-image: url('../images/map_placeholder.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    */
+    text-align: center;
+    width: 100%;
+    height: 200px;
+
+    margin-bottom: 1em;
+    border: thin solid black;
+}
+
+.search-result {
+    padding-top: 1em;
+    border-top: thin solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-result-info-main {
+    /* min spacing between the three columns at low res */
+    padding: 0 0.5em;
+    width: 5em;
+
+    /* align text left */
+    flex-grow: 1; /* grows relative to the location text */
+    text-align: left;
+}
+
+.search-result-info-name {
+    font-weight: bold;
+}
+
+.search-result-info-rating {
+}
+
+.search-result-info-location {
+    width: 5em;
+}
+
+/** Individual object page */
+
+.return {
+    margin-bottom: 1em;
+}
+
+.flex-wrap {
+    /* used on the map to put it under the photo */
+    flex-wrap: wrap;
+}
+
+.individual-info, .rating, .address {
+    margin-bottom: 1em;
+}
+
+.individual-info-left {
+    min-width: 5em;
+    padding-right: 1em;
+}
+
+.individual-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+#individual-map {
+    flex: auto; /* allow to fill available space */
+    min-width: 200px;
+    min-height: 200px;
+    height: 100%;
+    border: thin solid black;
+}
+
+.individual-picture {
+    flex: auto; /* allow to fill available space */
+    margin-bottom: 0.5em;
+}
+
+.individual-picture img {
+    width:100%;
+    max-width: 500px;
+    float: right;
+    border: thin solid black;
+}
+
+.new-review {
+    /* Note: vertical margins between two elements are taken as the minimum of two.
+       Normally I'll stick to using margin-bottom, only.
+    '*/
+    margin: 1em 0em;
+}
+
+.new-review textarea {
+    /* to take the whole line */
+    width: 100%;
+    display: block;
+}
+
+.new-review input[type=submit] {
+    display: block; /* to move to its own line */
+}
+
+.review {
+    border-top: thin solid #000;
+    padding-top: 0.5em;
+}
+.review-username {
+    color: #79CBB9;
+    font-weight: bold;
+
+}
+.review-rating {
+}
+.review-date {
+    font-style: italic;
+    float: right;
+}
+.review-comment {
+    overflow-wrap: break-word;
+}
+
+/** Form styling */
+
+form h2 {
+    margin-top: 0em;
+}
+
+.form-row {
+    margin: 1em;
+    list-style-type: none; /* remove <li> bullet point */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-left {
+    flex: auto; /* allow to fill available space */
+    width: 5em;
+    min-width: 5em; /* min/max width range for flex */
+    max-width: 20em;
+}
+
+.form-right {
+    box-sizing: border-box; /* sizes select tag properly */
+    padding: 0.5em 0em;
+    flex: auto;
+    width: 10em;
+    min-width: 5em;
+    max-width: 20em;
+}
+
+.form-right input, .form-right select {
+    padding: 0.5em 0em;
+}
+
+/*
+.form-columns {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    min-width: 5em;
+    max-width: 20em;
+}
+*/
+
+.form-columns input {
+    padding: 0.5em 0em;
+}
+
+.flex-column {
+    flex: 0 1 auto;
+    width: 100%;
+}
+
+.form-hint {
+}
+
+.label {
+    font-weight: bold;
+}
+
+
+/** Registration */
+
+.left-right-split {
+    display: flex;
+    justify-content: space-around; /* add extra spaces around each side when they don't fill up the width */
+    flex-wrap: wrap; /* if items can't fit side by side, wrap it */
+}

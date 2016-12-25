@@ -1,0 +1,4 @@
+<?php
+    echo "REPLACE aws.phar WITH THE ACTUAL FILE FROM https://github.com/aws/aws-sdk-php/releases";
+    die;
+?>

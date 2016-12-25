@@ -1,0 +1,13 @@
+/* submission specific css */
+
+input:invalid {
+    border-color: #F26D82;
+}
+
+#name:invalid + .form-hint::after {
+    content: "Allowed symbols: !@#$%^&*()':;,./-";
+}
+
+#location:invalid + .form-hint::after {
+    content: "Format: latitude, longitude";
+}
